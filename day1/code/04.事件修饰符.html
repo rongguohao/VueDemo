@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .inner {
+            background: palegreen;
+            height: 50px;
+        }
+        
+        .outer {
+            background: peru;
+            height: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="inner" @click="div1Handler">
+            <!--.stop阻止冒泡-->
+            <input type="button" value="戳他" @click.stop="btnHandler">
+        </div>
+
+        <!--.prevent阻止了默认的行为-->
+        <!--.once只触发一次事件-->
+        <a href="http://www.baidu.com" @click.prevent.once="linkClick">有问题先百度</a>
+
+        <!--.capture实现捕获触发 从外到里-->
+        <div class="inner" @click.capture="div1Handler">
+            <input type="button" value="戳他" @click="btnHandler">
+        </div>
+
+        <div style="height: 30px;"></div>
+        <!--.self只阻止自己的冒泡行为-->
+        <div class="outer" @click="div2Handler">
+            <div class="inner" @click.self="div1Handler">
+                <input type="button" value="戳他" @click="btnHandler">
+            </div>
+        </div>
+
+    </div>
+    <script>
+        //2.创建一个vue的实例
+        var vm = new Vue({
+            el: '#app',
+            data: { //data属性中存放的是el用到的数据
+                msg: '欢迎学习Vue'
+            },
+            methods: {
+                div1Handler() {
+                    console.log("触发了inner点击")
+                },
+                btnHandler() {
+                    console.log("戳他")
+                },
+                linkClick() {
+                    console.log("触发了链接点击事件")
+                },
+                div2Handler() {
+                    console.log("outer")
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

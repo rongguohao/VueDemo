@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+    </div>
+    <script>
+        //2.创建一个vue的实例
+        var vm = new Vue({
+            el: '#app',
+            data: { //data属性中存放的是el用到的数据
+                msg: '欢迎学习Vue'
+            }
+        })
+    </script>
+</body>
+
+</html>
