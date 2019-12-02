@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="toggle" @click="toggle">
+        <!-- v-if删除或创建元素  有较高的切换性能消耗  元素频繁切换 最好不要使用-->
+        <!-- v-show 切换display:none 样式  有较高的初始渲染消耗-->
+        <h3 v-if="flag">这是v-if控制的元素</h3>
+        <h3 v-show="flag">这是v-show控制的元素</h3>
+        <!-- v-show -->
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                flag: true
+            },
+            methods: {
+                toggle() {
+                    this.flag = !this.flag
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
