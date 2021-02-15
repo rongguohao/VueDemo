@@ -2,32 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-      <script src="../js/vue.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
 </head>
 
 <body>
-    <div id="app">
-        <h4>{{msg}}</h4>
+  <div id="app">
+    <h4>{{msg}}</h4>
 
-        <!--v-bind只能实现数据的单向绑定-->
-        <input type="text" v-bind:value="msg" style="width: 100%;">
+    <!--v-bind只能实现数据的单向绑定-->
+    <input type="text" v-bind:value="msg" style="width: 100%;">
 
-        <input type="text" v-model="msg" style="width: 100%;">
+    <input type="text" v-model="msg" style="width: 100%;">
 
-    </div>
-    <script>
-        //2.创建一个vue的实例
-        var vm = new Vue({
-            el: '#app',
-            data: { //data属性中存放的是el用到的数据
-                msg: '欢迎学习Vue'
-            }
-        })
-    </script>
+  </div>
+  <script>
+    //2.创建一个vue的实例
+    var vm = new Vue({
+      el: '#app',
+      data: { //data属性中存放的是el用到的数据
+        msg: '欢迎学习Vue'
+      }
+    })
+  </script>
 </body>
 
 </html>

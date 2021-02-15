@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <div id="app">
+    <!--方法1.mustache语法;语法过于繁琐，{{firstName}} {{lastName}}属于代码逻辑处理，一般不要在html模板中这样写过于繁琐的语法-->
+    <h2>{{firstName}} {{lastName}}</h2>
+    <!--方法2.定义methods;多次使用，调用多次-->
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <!--方法3.定义computed;多次使用，只调用一次;说明computed比methods性能高。它内部做了缓存。只有之被修改，才会调用方法，并更新缓存-->
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        firstName: 'Kobe',
+        lastName: 'Bryant'
+      },
+      methods: {
+        getFullName: function () {
+          console.log('getFullName');
+          return this.firstName + this.lastName;
+        }
+      },
+      computed: {
+        fullName: function () {
+          console.log('fullName');
+          return this.firstName + this.lastName;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <!--v-if: 当条件为false时, 包含v-if指令的元素, 根本就不会存在dom中-->
+    <h2 v-if="isShow" id="aaa">{{message}}</h2>
+
+    <!--v-show: 当条件为false时, v-show只是给我们的元素添加一个行内样式: display: none-->
+    <h2 v-show="isShow" id="bbb">{{message}}</h2>
+  </div>
+  <!-- v-if删除或创建元素  有较高的切换性能消耗  元素频繁切换 最好不要使用-->
+  <!-- v-show 切换display:none 样式  有较高的初始渲染消耗-->
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊',
+        isShow: true
+      }
+    })
+  </script>
+
+</body>
+
+</html>

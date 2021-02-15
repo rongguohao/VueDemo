@@ -2,44 +2,44 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-      <script src="../js/vue.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
 </head>
 
 <body>
-    <div id="app">
-        <input type="button" value="浪起来" @click="lang">
-        <input type="button" value="低调" @click="stop">
-        <h4 v-text="msg"></h4>
-    </div>
-    <script>
-        // 在vm 中 想获取data上的数据 或者methods中的放大，必须通过this.数据属性名 或 this.方法名进行访问
-        var vm = new Vue({
-            el: "#app",
-            data: {
-                msg: '猥琐发育，别浪~~！',
-                intervalId: null
-            },
-            methods: {
-                lang() {
-                    // 箭头函数 内部this指向外部
-                    if (this.intervalId != null) return;
-                    this.intervalId = setInterval(() => {
-                        var start = this.msg.substring(0, 1);
-                        var end = this.msg.substring(1);
-                        this.msg = end + start;
-                    }, 400);
-                },
-                stop() {
-                    clearInterval(this.intervalId)
-                    this.intervalId = null;
-                }
-            },
-        });
-    </script>
+  <div id="app">
+    <input type="button" value="浪起来" @click="lang">
+    <input type="button" value="低调" @click="stop">
+    <h4 v-text="msg"></h4>
+  </div>
+  <script>
+    // 在vm 中 想获取data上的数据 或者methods中的放大，必须通过this.数据属性名 或 this.方法名进行访问
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        msg: '猥琐发育，别浪~~！',
+        intervalId: null
+      },
+      methods: {
+        lang() {
+          // 箭头函数 内部this指向外部
+          if (this.intervalId != null) return;
+          this.intervalId = setInterval(() => {
+            var start = this.msg.substring(0, 1);
+            var end = this.msg.substring(1);
+            this.msg = end + start;
+          }, 400);
+        },
+        stop() {
+          clearInterval(this.intervalId)
+          this.intervalId = null;
+        }
+      },
+    });
+  </script>
 </body>
 
 </html>
