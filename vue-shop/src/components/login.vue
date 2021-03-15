@@ -2,14 +2,20 @@
   <div class="login-container">
     <div class="login-box">
       <div class="avatar-box">
-        <img src="../assets/logo.png" />
+        <img src="../assets/logo.png" alt="">
       </div>
+
+      <el-form label-width="80px">
+        <el-form-item label="活动名称">
+          <el-input />
+        </el-form-item>
+      </el-form>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style lang="less" scoped>
