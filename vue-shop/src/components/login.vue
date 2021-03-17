@@ -4,12 +4,19 @@
       <div class="avatar-box">
         <img src="../assets/logo.png" alt="">
       </div>
-
-      <el-form label-width="80px">
-        <el-form-item label="活动名称">
-          <el-input />
+      <el-form label-width="0px" class="login-form">
+        <el-form-item>
+          <el-input prefix-icon="iconfont icon-user" />
+        </el-form-item>
+        <el-form-item>
+          <el-input prefix-icon="iconfont icon-3702mima" />
+        </el-form-item>
+        <el-form-item class="btns">
+          <el-button type="primary">登录</el-button>
+          <el-button type="info">重置</el-button>
         </el-form-item>
       </el-form>
+
     </div>
   </div>
 </template>
@@ -23,6 +30,7 @@ export default {}
   background-color: #2b4b6b;
   height: 100%;
 }
+
 .login-box {
   width: 450px;
   height: 300px;
@@ -32,6 +40,7 @@ export default {}
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
   .avatar-box {
     height: 130px;
     width: 130px;
@@ -44,6 +53,7 @@ export default {}
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
+
     img {
       width: 100%;
       height: 100%;
@@ -52,4 +62,17 @@ export default {}
     }
   }
 }
+.btns{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login-form{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
 </style>
